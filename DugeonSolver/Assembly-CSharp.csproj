@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\moment.cs" />
+    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\ruch.cs" />
     <Compile Include="Assets\w_górę.cs" />
     <Reference Include="UnityEditor.StandardEvents">
