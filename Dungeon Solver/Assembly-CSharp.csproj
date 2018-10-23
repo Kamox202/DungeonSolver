@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Nowy folder\ruch.cs" />
+     <Compile Include="Assets\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\GlowneMenu.cs" />
      <Compile Include="Assets\Scripts\SettingsMenu.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
