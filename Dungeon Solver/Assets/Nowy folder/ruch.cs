@@ -10,14 +10,15 @@ public class ruch : MonoBehaviour {
 
     private Vector2 kierunek;
     
-    public Button b_Gora, b_Dol, b_Prawo, b_Lewo;
+    public Button b_Gora, b_Dol, b_Prawo, b_Lewo, b_Wlacz, b_Wyczysc;
 	
-	public int[] movement = new int[5];
-	/*public List<int> ruchy = new List<int>();
+	////public int[] movement = new int[5];
+	public List<int> ruchy = new List<int>();
+
 	
-	Rychy.ADd(3)
-	ruchy.ToArray()
-	*/
+	// dodawanie do listy 		ruchy.Add(3);
+	// np. ruchy.ToArray();		tablica = lista.toArray();
+
 	int ilRuchow = 0;
 	int licznik = 0;
 	
@@ -36,6 +37,10 @@ public class ruch : MonoBehaviour {
          //b_Lewo.onClick.AddListener(Lewo);
 		 b_Lewo.onClick.AddListener(() => Movement(3));
 		 
+		 b_Wlacz.onClick.AddListener(Trst);
+
+		 b_Wyczysc.onClick.AddListener(Tsst);
+	
     }
     
     // Update is called once per frame
@@ -48,11 +53,13 @@ public class ruch : MonoBehaviour {
 	
 	void OnGUI()
      {
-		if(ilRuchow==movement.Length)
+		/*////if(ilRuchow==movement.Length)
 		{
 		Trst();	
 		
 		}
+		*/
+
 	 }
 
     public void Move() {
@@ -90,38 +97,47 @@ public class ruch : MonoBehaviour {
 		kierunek = Vector2.zero;		
     }
 
-	
+
 	void Movement(int ruch)
 	{
 		Debug.Log(ruch);
-		movement[ilRuchow] = ruch;
+		////movement[ilRuchow] = ruch;
+		ruchy.Add(ruch);
 		ilRuchow++;
 	}
-	
 
-
-	void Trst()
+	 private void Trst()
 	{
-	while (licznik<movement.Length)
-	{
-			if (movement[licznik]==0)
+		while (licznik<ruchy.Count)
+		{
+			if (ruchy[licznik]==0)
 			{
 				Gora();
 			}
-			else if (movement[licznik]==1)
+			else if (ruchy[licznik]==1)
 			{
 				Dol();
 			}
-			else if (movement[licznik]==2)
+			else if (ruchy[licznik]==2)
 			{
 				Prawo();
 			}
-			else if (movement[licznik]==3)
+			else if (ruchy[licznik]==3)
 			{
 				Lewo();
 			}
 			licznik++;
-	}
-	}
+		}
+		for (int item = 0; item<ruchy.Count; item++)
+			{
+				Debug.Log(ruchy[item]);
+			}
 
+	}
+	
+	private void Tsst()
+	{
+		ruchy.Clear();
+		licznik = 0;
+	}
 }
